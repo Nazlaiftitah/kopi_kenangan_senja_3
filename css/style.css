@@ -73,3 +73,12 @@ body {
   color: #fff;
   margin: 0 0.5rem;
 }
+
+.navbar .navbar-extra a:hover {
+  color: var(--primary);
+}
+
+#hamburger-menu {
+  display: none;
+  cursor: pointer;
+}
