@@ -17,7 +17,10 @@ body {
   font-family: "poppins", sans-serif;
   background-color: var(--bg);
   color: #fff;
-  min-height: 5000px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* navbar */
@@ -33,6 +36,7 @@ body {
   left: 0;
   right: 0;
   z-index: 9999;
+  transition: 0.5s ease;
 }
 
 .navbar .navbar-logo {
@@ -93,6 +97,7 @@ body {
   background-size: cover;
   background-position: center;
   position: relative;
+  padding: 30px;
 }
 
 .hero::after {
@@ -102,6 +107,7 @@ body {
   height: 100%;
   width: 40%;
   bottom: 0;
+  pointer-events: none; /* ⬅️ biar tidak menghalangi hover */
 }
 
 .hero .hero-content {
@@ -143,8 +149,7 @@ body {
 
 .hero .content .cta:hover {
   background-color: #a2714a;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  color: black;
 }
 
 /* about section */
@@ -156,7 +161,7 @@ body {
 
 .about h2,
 .h2,
-.conract h2 {
+.contact h2 {
   text-align: center;
   font-size: 2.6rem;
   margin-bottom: 3rem;
@@ -230,11 +235,14 @@ body {
 
 .menu .row .menu-card img {
   border-radius: 50%;
-  width: 80%;
+  width: 150px;
+  height: 150px;
+  margin: 0px 15px;
 }
 
-.menu .row .menu-card .menu-card-title {
-  margin: 1rem auto 0.5rem;
+.menu .row .menu-card h3 {
+  margin-top: 50px;
+  margin-bottom: -20px;
 }
 
 /* contact section */
@@ -283,6 +291,49 @@ body {
   cursor: pointer;
 }
 
+/* footer */
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0.3rem;
+  margin-top: 3rem;
+}
+
+footer .socials {
+  padding: 1rem 0;
+}
+
+footer .socials a {
+  color: #fff;
+  margin: 1rem;
+}
+
+footer .socials a:hover {
+  color: var(--bg);
+}
+
+footer .links {
+  margin-bottom: 1.4rem;
+}
+
+footer .links a {
+  color: #fff;
+  padding: 0.7rem 1rem;
+}
+
+footer .links a:hover {
+  color: var(--bg);
+  padding: 0.7rem 1rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: var(--bg);
+  font-weight: 700;
+}
 /* media queries */
 
 /* laptop */
@@ -301,19 +352,21 @@ body {
     display: inline-block;
   }
 
+  /* kondisi default (tersembunyi) */
   .navbar .navbar-nav {
     position: absolute;
     top: 100%;
-    transform: translateX(100%);
     right: 0;
+    transform: translateX(100%);
     background-color: #fff;
     width: 30rem;
     height: 100vh;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
   }
 
+  /* saat aktif (muncul) */
   .navbar .navbar-nav.active {
-    right: 0;
+    transform: translateX(0);
   }
 
   .navbar .navbar-nav a {
