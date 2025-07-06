@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+
+<!--
+    Perbedaan clip-path vs mask:
+    - clip-path:
+      🔹 Memotong elemen dengan bentuk geometri (circle, polygon, ellipse).
+      🔹 Tidak mendukung gradasi/transparansi bertahap.
+      🔹 Lebih ringan dan didukung luas.
+
+    - mask:
+      🔹 Menggunakan gambar/gradasi untuk mengontrol visibilitas elemen.
+      🔹 Mendukung transparansi bertingkat (sebagian terlihat, sebagian tidak).
+      🔹 Lebih fleksibel untuk efek visual yang kompleks (misal: masking SVG, gradien).
+      🔹 Perlu prefix -webkit- untuk Safari.
+  -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -81,13 +96,15 @@
 
     <!-- hero section start -->
     <section class="hero" id="home">
-      <main class="content">
-        <h1>Mari nikmati secangkir<span> kopi</span></h1>
-        <p>
-          Secangkir kopi bukan hanya soal rasa, tapi tentang kenangan yang
-          menghangatkan hari.
-        </p>
-      </main>
+      <div class="mask-container">
+        <main class="content">
+          <h1>Mari nikmati secangkir<span> kopi</span></h1>
+          <p>
+            Secangkir kopi bukan hanya soal rasa, tapi tentang kenangan yang
+            menghangatkan hari.
+          </p>
+        </main>
+      </div>
     </section>
 
     <!-- hero section end -->
